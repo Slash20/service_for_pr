@@ -1,0 +1,6 @@
+services:
+  app:
+    build: .
+    container_name: tz_avito
+    ports:
+      - "8080:8080"
