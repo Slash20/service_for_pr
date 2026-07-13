@@ -21,7 +21,7 @@ router = APIRouter(tags=["PullRequests"])
     status_code=status.HTTP_201_CREATED,
     response_model=PullRequestResponse,
 )
-async def create_pr(body: CreatePRRequest):
+def create_pr(body: CreatePRRequest):
     if body.pull_request_id in prs_db:
         raise HTTPException(
             status_code=409,
@@ -65,7 +65,7 @@ async def create_pr(body: CreatePRRequest):
     "/pullRequest/merge",
     response_model=PullRequestResponse,
 )
-async def merge_pr(body: MergePRRequest):
+def merge_pr(body: MergePRRequest):
     pr = get_pr_or_404(body.pull_request_id)
 
     if pr.status == PRStatus.MERGED:
@@ -81,7 +81,7 @@ async def merge_pr(body: MergePRRequest):
     "/pullRequest/reassign",
     response_model=ReassignResponse,
 )
-async def reassign_reviewer(body: ReassignReviewerRequest):
+def reassign_reviewer(body: ReassignReviewerRequest):
     pr = get_pr_or_404(body.pull_request_id)
 
     if pr.status == "MERGED":

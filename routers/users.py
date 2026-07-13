@@ -16,7 +16,7 @@ router = APIRouter(tags=["Users"])
     "/users/setIsActive",
     response_model=UserResponse
 )
-async def set_user_active(body: SetUserActiveRequest):
+def set_user_active(body: SetUserActiveRequest):
     user = get_user_or_404(body.user_id)
 
     user.is_active = body.is_active
@@ -28,7 +28,7 @@ async def set_user_active(body: SetUserActiveRequest):
     "/users/getReview",
     response_model=UserReviewsResponse
 )
-async def get_user_reviews(user_id: str):
+def get_user_reviews(user_id: str):
     get_user_or_404(user_id)
 
     pull_requests = [
