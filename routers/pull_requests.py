@@ -16,8 +16,6 @@ from src.utils import now_iso, get_pr_or_404, get_user_or_404
 router = APIRouter(tags=["PullRequests"])
 
 
-# ---------- CREATE PR ----------
-
 @router.post(
     "/pullRequest/create",
     status_code=status.HTTP_201_CREATED,
@@ -63,8 +61,6 @@ async def create_pr(body: CreatePRRequest):
     return PullRequestResponse(pr=pr)
 
 
-# ---------- MERGE PR (idempotent) ----------
-
 @router.post(
     "/pullRequest/merge",
     response_model=PullRequestResponse,
@@ -80,8 +76,6 @@ async def merge_pr(body: MergePRRequest):
 
     return PullRequestResponse(pr=pr)
 
-
-# ---------- REASSIGN ----------
 
 @router.post(
     "/pullRequest/reassign",
@@ -147,8 +141,6 @@ async def reassign_reviewer(body: ReassignReviewerRequest):
         replaced_by=new_user.user_id,
     )
 
-
-# ---------- helper endpoint response format ----------
 
 def to_short(pr):
     return PullRequestShort(
