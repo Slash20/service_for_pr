@@ -4,7 +4,7 @@ from src.models import (
     Team,
     TeamMember,
     TeamResponse,
-    UserModel,
+    UserModel
 )
 from src.storage import teams_db, users_db
 

@@ -8,7 +8,7 @@ from src.models import (
     ReassignReviewerRequest,
     PullRequestResponse,
     ReassignResponse,
-    PullRequestShort, PRStatus, PullRequestModel,
+    PullRequestShort, PRStatus, PullRequestModel
 )
 from src.storage import prs_db, users_db
 from src.utils import now_iso, get_pr_or_404, get_user_or_404

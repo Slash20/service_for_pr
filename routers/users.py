@@ -4,7 +4,7 @@ from src.models import (
     SetUserActiveRequest,
     UserResponse,
     UserReviewsResponse,
-    PullRequestShort,
+    PullRequestShort
 )
 from src.storage import prs_db
 from src.utils import get_user_or_404
